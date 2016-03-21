@@ -1,0 +1,12 @@
+STUFF_DIR="/home/carlos"
+
+export ENV_DIR="$STUFF_DIR/environment-configuration/build"
+export DROPBOX_DIR="$STUFF_DIR/Dropbox"
+export SITES_DIR="$STUFF_DIR/Sites"
+export DOWNLOADS_DIR="$STUFF_DIR/Downloads"
+export PATH="$STUFF_DIR/Scripts:$SITES_DIR/elpadi/shell-scripts:$PATH"
+
+export EDITOR="vim"
+export VIMINIT="so $ENV_DIR/../src/vim/vimrc.txt"
+
+export CLICOLOR=true

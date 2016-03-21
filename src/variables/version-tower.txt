@@ -1,0 +1,22 @@
+STUFF_DIR="/Volumes/fountainhead/CARLOS"
+
+export ENV_DIR="$STUFF_DIR/Environment"
+export DROPBOX_DIR="$STUFF_DIR/Dropbox"
+export MAIL_DIR="$STUFF_DIR/Mail"
+export CODE_DIR="$STUFF_DIR/Codigo"
+export SITES_DIR="$STUFF_DIR/Sites"
+export DOWNLOADS_DIR="$STUFF_DIR/Downloads"
+export PATH="/Volumes/fountainhead/CARLOS/Macports/bin:/Volumes/fountainhead/CARLOS/Macports/sbin:/Volumes/fountainhead/CARLOS/Macports/Library/Frameworks/Python.framework/Versions/2.7/bin:/Volumes/fountainhead/CARLOS/Macports/lib/mysql55/bin:/Volumes/fountainhead/CARLOS/Compiled/bin:/Volumes/fountainhead/CARLOS/NodeModules/bin:/Volumes/fountainhead/CARLOS/Pear/bin:$SITES_DIR/elpadi/shell-scripts:$PATH"
+
+export PASSWORD_STORE_DIR="$DROPBOX_DIR/Passwords"
+export SSL_CERTS_PATH="$STUFF_DIR/Macports/etc/openssl/cert.pem"
+
+export EDITOR="/Volumes/fountainhead/CARLOS/Macports/bin/vim"
+export VIMINIT="so $DROPBOX_DIR/Environment/vim/vimrc.txt"
+
+export CLICOLOR=true
+export CFLAGS="-arch i386 -arch x86_64 -g -Os -pipe -no-cpp-precomp"
+export CCFLAGS="-arch i386 -arch x86_64 -g -Os -pipe"
+export CXXFLAGS="-arch i386 -arch x86_64 -g -Os -pipe"
+export CPPFLAGS="-I$STUFF_DIR/Macports/include -I$STUFF_DIR/Compiled/include"
+export LDFLAGS="-L$STUFF_DIR/Macports/lib -L$STUFF_DIR/Compiled/lib -arch i386 -arch x86_64 -bind_at_load"

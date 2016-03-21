@@ -1,0 +1,265 @@
+"===================
+"    Command Line
+"===================
+:cnoremap <C-a>  <Home>
+:cnoremap <C-b>  <Left>
+:cnoremap <C-f>  <Right>
+:cnoremap <C-d>  <Delete>
+:cnoremap <M-b>  <S-Left>
+:cnoremap <M-f>  <S-Right>
+:cnoremap <M-d>  <S-right><Delete>
+:cnoremap <Esc>b <S-Left>
+:cnoremap <Esc>f <S-Right>
+:cnoremap <Esc>d <S-right><Delete>
+:cnoremap <C-g>  <C-c>
+
+
+"===================
+"    Search
+"===================
+:set incsearch
+:set ignorecase
+:set smartcase
+:set hlsearch
+:nmap \q :nohlsearch<CR>
+
+
+"===================
+"    Identation
+"===================
+
+" indents to the previous line
+set autoindent
+
+" load special indent files
+filetype indent on
+
+" set indent width
+set tabstop=2
+set shiftwidth=2
+
+
+
+"=====================
+"   Miscellaneous
+"=====================
+
+" put swap files in vim swap directory.
+set directory^=$ENV_DIR/vim/swap//
+
+" set persistent history.
+set undodir=$ENV_DIR/vim/undodir
+set undofile
+
+" briefly moves cursor to matching character
+" and sets how long before it comes back
+set showmatch
+set mat=2
+
+" set background for syntax coloring
+set background=dark
+
+" do not wrap lines
+set nowrap
+
+" show line numbers
+set number
+
+" show the current mode
+set showmode
+
+" show the commands as they are written
+set showcmd
+
+" show the position of the cursor
+set ruler
+set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
+
+" force 256 colors for the command line version.
+set t_Co=256
+
+" keep at least this amount of lines before scrolling
+set scrolloff=5
+
+" do not backup files for cron
+if $VIM_CRONTAB == "true"
+	set nobackup
+	set nowritebackup
+endif
+
+colorscheme ir_black
+
+
+"==============
+"   GUI Vim
+"==============
+
+" only if GUI running {{{
+if has("gui_running")
+  
+  " highlight column 80
+  set colorcolumn=80
+  
+  " keep the cursor from blinking on GUI versions
+  set gcr=a:blinkon0
+
+  " set the font to use
+  let s:uname = system("echo -n \"$(uname)\"")
+  if !v:shell_error && s:uname == "Linux"
+    set gfn=Inconsolata\ 10
+  else
+    set gfn=Inconsolata:h13
+  endif
+
+endif
+" }}} end gui running
+
+
+
+
+"=====================
+"   File Handling
+"=====================
+
+" updates flie automatically when they are changed outside
+set autoread
+
+" force writing of file
+cmap w!! w !sudo tee % >/dev/null
+
+" load filetype files
+filetype plugin on
+
+
+"==============
+"   Editing
+"==============
+
+" enable syntax highlighting
+syntax enable
+
+" set encoding
+set encoding=utf8
+
+" allows backspace to erase anything
+set backspace=indent,eol,start
+
+" allows direction keys to move up lines
+set whichwrap+=<,>,h,l
+
+" allow insertion of a new line in normal mode
+map <CR> i<CR><Esc>
+
+" stop search highlighting
+set nohlsearch
+
+"=========================
+"   Autocommands
+"=========================
+
+" set .as files to actionscript
+au BufRead,BufNewFile *.as setlocal filetype=actionscript
+
+" set .less files to css
+au BufRead,BufNewFile *.less setlocal filetype=css
+" compile less files on save
+" au BufWritePost,FileWritePost *.less silent !lessc <afile> <afile>:r.css
+
+" set .json files to javascript
+au BufRead,BufNewFile *.json setlocal filetype=javascript
+
+" YAML does not like tabs
+autocmd FileType yaml setlocal expandtab
+
+" twig might as well be html
+au BufRead,BufNewFile *.twig set filetype=html
+
+" set autocompletes
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType php set omnifunc=phpcomplete#Complete
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+
+" set GLSL highlighting
+au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
+
+" disable modelines for makefiles
+au FileType make set modelines=0
+
+" .tmux files
+au BufRead,BufNewFile *.tmux set filetype=tmux
+
+
+
+"=========================
+"   Functions
+"=========================
+
+function! YamlSpacing()
+    :setlocal expandtab
+    :setlocal tabstop=4
+    :setlocal shiftwidth=4
+endf
+
+function! DrupalSpacing()
+    :setlocal expandtab
+    :setlocal tabstop=2
+    :setlocal shiftwidth=2
+endf
+
+function! NormalSpacing()
+  :setlocal noexpandtab
+  :setlocal tabstop=4
+  :setlocal shiftwidth=4
+endf
+call NormalSpacing()
+
+function! CommentLogs()
+  :%s/^\(\s*\)console\.log/\1\/\/console.log/
+endf
+
+function! UncommentLogs()
+  :%s/^\(\s*\)\/\/console\.log/\1console.log/
+endf
+
+function! DisableAutoIndentation()
+	:setl noai nocin nosi inde=
+endf
+
+
+"=======================
+" Pathogen Plugins
+"=======================
+execute pathogen#infect()
+
+"==============================
+"    ControlP File Search
+"==============================
+:nmap ; :CtrlPBuffer<CR>
+:let g:ctrlp_map = '<Leader>t'
+:let g:ctrlp_match_window_bottom = 0
+:let g:ctrlp_match_window_reversed = 0
+:let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
+:let g:ctrlp_working_path_mode = 0
+:let g:ctrlp_dotfiles = 0
+:let g:ctrlp_switch_buffer = 0
+
+
+"===================
+"    NERDTree
+"===================
+:nmap \e :NERDTreeToggle<CR>
+
+
+"=======================
+"    neocomplcache
+"=======================
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_min_syntax_length = 2
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+if !exists('g:neocomplcache_omni_patterns')
+	let g:neocomplcache_omni_patterns = {}
+endif
+let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'

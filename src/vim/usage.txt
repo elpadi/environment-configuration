@@ -1,0 +1,26 @@
+use marks:
+	set: ma
+	go: 'a
+easymotion:
+	\\w - word motion.
+	\\fa - character a motion.
+powerline:
+nerdtree:
+	\e - show tree.
+control-p:
+	\t - search files.
+	; - search open buffers.
+	F5 - refresh
+Replace only on selected text:
+	:%s/\%V{SEARCH}/{REPLACE}/g
+Paste without affecting identation:
+	:r! cat and Shift-insert and CTRL+D.
+				<CMD-V> and Ctrl-C on OSX.
+Get the full filename of the path.
+	:echo expand("%:p")
+paste a register into a command
+	CTRL-R <register>, '"' for just yanked.
+close all other tabs
+	tabo
+repeat substitution:
+	&

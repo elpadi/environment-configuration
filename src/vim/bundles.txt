@@ -1,0 +1,10 @@
+git://git.wincent.com/command-t.git
+git://github.com/kien/ctrlp.vim.git
+git://github.com/Shougo/neocomplcache.git
+https://github.com/scrooloose/nerdtree.git
+https://github.com/scrooloose/syntastic.git
+git://github.com/Lokaltog/vim-easymotion.git
+git://github.com/jamessan/vim-gnupg.git
+git://github.com/Lokaltog/vim-powerline.git
+https://github.com/evidens/vim-twig.git
+https://github.com/tejr/vim-tmux.git

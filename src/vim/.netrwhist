@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/usr/lib/php/pear/PHPUnit'
+let g:netrw_dirhist_2='/Volumes/fountainhead/CARLOS/Sites/manrico/trunk/vendor/zendframework/zendframework/library/Zend/Filter'
+let g:netrw_dirhist_3='/Volumes/fountainhead/CARLOS/Sites/kaleidoscope/trunk/public_html/wordpress/wp-content/themes/kpr/js/src/components'
+let g:netrw_dirhist_4='/Volumes/fountainhead/CARLOS/Sites/manrico/trunk/module/Manrico'
+let g:netrw_dirhist_5='/Volumes/fountainhead/CARLOS/Sites/carbon_war_room/se_trunk/sites/shippingefficiency.org/themes'

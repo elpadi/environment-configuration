@@ -1,0 +1,30 @@
+
+#{{{ Key bindings
+# Who doesn't want home and end to work?
+bindkey '\e[1~' beginning-of-line
+bindkey '\e[4~' end-of-line
+# Incremental search is elite!
+bindkey -M vicmd "/" history-incremental-search-backward
+bindkey -M vicmd "?" history-incremental-search-forward
+# Search based on what you typed in already
+bindkey -M vicmd "//" history-beginning-search-backward
+bindkey -M vicmd "??" history-beginning-search-forward
+# oh wow!  This is killer...  try it!
+bindkey -M vicmd "q" push-line
+# Ensure that arrow keys work as they should
+bindkey '\e[C' forward-char
+bindkey '\e[D' backward-char
+bindkey '\eOC' forward-char
+bindkey '\eOD' backward-char
+bindkey -M viins 'jj' vi-cmd-mode
+bindkey -M vicmd 'u' undo
+# Rebind the insert key.  I really can't stand what it currently does.
+bindkey '\e[2~' overwrite-mode
+# Rebind the delete key. Again, useless.
+bindkey '\e[3~' delete-char
+bindkey -M vicmd '!' edit-command-output
+# it's like, space AND completion.  Gnarlbot.
+bindkey -M viins ' ' magic-space
+#}}}
+
+
