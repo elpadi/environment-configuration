@@ -16,3 +16,6 @@ alias c='noglob perl -e '\''shift; $x = eval qq(@ARGV); print $x; printf " 0x%x 
 
 # devdocs.io
 alias docs='webapp http://devdocs.io/'
+
+# fetch issues from github
+alias issues='curl -H "Authorization: token c70bb1400db53e1ea258c78108074a7e52757292" "https://api.github.com/user/issues" | jq -r \'.[] | .title + "[" + .repository.name + "]:\n" + .body + "\n"\'
