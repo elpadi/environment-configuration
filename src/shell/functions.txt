@@ -35,3 +35,7 @@ path() {
 webapp() {
 	launch chromium-browser --user-data-dir=~/.config/chromium-apps --app="$1"
 }
+
+wpsed() {
+	wp search-replace "$1" "$2" --precise --recurse-objects --debug
+}
