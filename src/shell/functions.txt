@@ -41,5 +41,5 @@ wpsed() {
 }
 
 vga() {
-	if [ $(xrandr | grep -c 'VGA1 dis') -eq 1 ]; then xrandr --output VGA1 --preferred --right-of LVDS1; else xrandr --output VGA1 --off; fi
+	if [ $(xrandr | grep -c 'VGA1 dis') -eq 1 ]; then xrandr --output VGA1 --off; else xrandr --output VGA1 --preferred --right-of LVDS1; fi
 }
