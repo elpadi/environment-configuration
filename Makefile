@@ -18,7 +18,7 @@ build/variables.txt: src/variables/$(HOSTNAME).txt
 variables: build/variables.txt
 
 vim:
-	mkdir -p $(BUILD_DIR)/vim/bundle
+	mkdir -p $(BUILD_DIR)/vim/{bundle,undodir,swap}
 	cp -r src/vim/config-dirs/* $(BUILD_DIR)/vim
 	if [ ! -e ~/.vim ]; then cd ~; ln -s $(BUILD_DIR)/vim .vim; fi
 	$(eval REPOS := $(shell cat src/vim/bundles.txt))
