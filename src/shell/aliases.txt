@@ -14,5 +14,5 @@ alias crontab="VIM_CRONTAB=true crontab"
 alias c='noglob perl -e '\''shift; $x = eval qq(@ARGV); print $x; printf " 0x%x 0%o %b\n", $x, $x, $x'\'' _'
 
 # devdocs.io
-alias docs='chromium-browser --user-data-dir=$HOME/.config/chromium-apps --app=devdocs.io'
+alias docs='chromium-browser --user-data-dir=$HOME/.config/chromium-apps --app=http://devdocs.io'
 
