@@ -1,0 +1,13 @@
+export DATA_DIR="/media/carlos/Files"
+
+export ENV_DIR="/home/carlos"
+export SITES_DIR="/home/carlos/Work"
+export PATH="$HOME/.xmonad:$HOME/.cabal/bin:$HOME/Scripts:$SITES_DIR/elpadi/shell-scripts:$PATH"
+
+export SSL_CERTS_PATH="/etc/ssl/certs/ca-certificates.crt"
+
+export NODE_PATH=/usr/local/bin:/usr/local/lib/node_modules
+export EDITOR="vim"
+
+export TERM="rxvt"
+export CLICOLOR=true
