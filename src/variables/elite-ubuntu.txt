@@ -3,6 +3,7 @@ export DATA_DIR="/media/carlos/Files"
 export ENV_DIR="/home/carlos"
 export SITES_DIR="/home/carlos/Work"
 export PATH="$HOME/.xmonad:$HOME/.cabal/bin:$HOME/Scripts:$SITES_DIR/elpadi/shell-scripts:$PATH"
+export PHPRC="$SITES_DIR/elpadi/environment-configuration/src/php"
 
 export SSL_CERTS_PATH="/etc/ssl/certs/ca-certificates.crt"
 
