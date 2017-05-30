@@ -43,3 +43,14 @@ wpsed() {
 vga() {
 	if [ $(xrandr | grep -c 'VGA1 dis') -eq 1 ]; then xrandr --output VGA1 --off; else xrandr --output VGA1 --preferred --right-of LVDS1; fi
 }
+pass() {
+	awk -F , "/$1/ { print \" | \" \$2 \" | \" \$3 \" | \" \$5 \" | \" }" ~/.passwords
+}
+git-lftp() {
+	script=$SITES_DIR/elpadi/shell-scripts/git-lftp.awk
+	if [ -e $1 ]; then
+		git status -s | awk -f $script
+	else 
+		git show --oneline --name-status $1 | awk -f $script
+	fi
+}
