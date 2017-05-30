@@ -42,7 +42,7 @@ build/shell/.zshrc: build/variables.txt src/shell/*.txt src/shell/zshell/*.txt
 	cat $^ > $@
 
 build/apache/server.conf: src/apache/server.conf
-	sed "s,Directory ,Directory $$SITES_DIR," $^ > $@
+	sed -e "s,%SITES_DIR%,$$SITES_DIR,g" $^ > $@
 
 build/apache/vhosts.conf: src/apache/vhosts/*.conf
 	cat $^ | sed -e "s,DocumentRoot ,DocumentRoot $$SITES_DIR," -e "s/ServerName LOCAL_HOSTNAME/ServerName $(HOSTNAME)/" > $@
