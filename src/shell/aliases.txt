@@ -16,3 +16,5 @@ alias c='noglob perl -e '\''shift; $x = eval qq(@ARGV); print $x; printf " 0x%x 
 # devdocs.io
 alias docs='chromium-browser --user-data-dir=$HOME/.config/chromium-apps --app=http://devdocs.io'
 
+# windows clipboard
+alias winclip='tail /mnt/Windows/Clipboard\ Manager/clipboard/ClipData.txt'
