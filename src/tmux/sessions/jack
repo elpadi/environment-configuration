@@ -1,0 +1,8 @@
+#!/bin/sh
+
+cd $SITES_DIR/dahlen/jack/website
+tmux new-session -d -n website -s jack && tmux lock-session -t jack
+tmux new-window -c $SITES_DIR/dahlen/jack/website/src -n src
+tmux new-window -c $SITES_DIR/dahlen/jack/website/templates -n templates
+tmux new-window -c $SITES_DIR/dahlen/jack/website/assets -n assets
+tmux new-window -c $SITES_DIR/dahlen/jack/common -n common
