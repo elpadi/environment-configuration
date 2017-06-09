@@ -7,3 +7,4 @@ git://github.com/Lokaltog/vim-easymotion.git
 git://github.com/jamessan/vim-gnupg.git
 git://github.com/Lokaltog/vim-powerline.git
 https://github.com/evidens/vim-twig.git
+https://github.com/gkjgh/cobalt
