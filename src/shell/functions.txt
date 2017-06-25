@@ -52,3 +52,11 @@ git-lftp() {
 		git show --oneline --name-status $1 | awk -f $script
 	fi
 }
+
+tsess() {
+	if tmux has-session -t $1; then
+		tmux attach-session -t $1
+	else
+		/usr/bin/zsh $SITES_DIR/elpadi/environment-configuration/src/tmux/sessions/$1
+	fi
+}
