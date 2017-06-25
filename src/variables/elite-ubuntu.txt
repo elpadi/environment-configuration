@@ -1,7 +1,11 @@
-export DATA_DIR="/media/carlos/Files"
+export DATA_DIR="/mnt/Files"
 
 export ENV_DIR="/home/carlos"
-export SITES_DIR="/home/carlos/Work"
+if [ -d /mnt/Flash/Work ]; then  
+	export SITES_DIR="/mnt/Flash/Work"
+else
+	export SITES_DIR="$HOME/Work"
+fi
 export PATH="$HOME/.xmonad:$HOME/.cabal/bin:$HOME/Scripts:$SITES_DIR/elpadi/shell-scripts:$PATH"
 export PHPRC="$SITES_DIR/elpadi/environment-configuration/src/php"
 
