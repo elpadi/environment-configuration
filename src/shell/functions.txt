@@ -60,3 +60,7 @@ tsess() {
 		/usr/bin/zsh $HOME/Work/elpadi/environment-configuration/src/tmux/sessions/$1
 	fi
 }
+
+bckg() {
+	nohup $0 > /dev/null 2>&1 &
+}
