@@ -44,6 +44,12 @@ set shiftwidth=2
 "   Miscellaneous
 "=====================
 
+" disable vi compatibility
+set nocompatible
+
+" always show the status bar
+set laststatus=2
+
 " put swap files in vim swap directory.
 set directory^=$ENV_DIR/vim/swap//
 
@@ -266,4 +272,10 @@ let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 
 
 colorscheme cobalt
+colorscheme murphy
 
+
+"=======================
+"    powerline
+"=======================
+let g:Powerline_stl_path_style = 'relative'
