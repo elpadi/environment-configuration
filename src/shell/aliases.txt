@@ -1,5 +1,5 @@
 # ls color
-alias ls='ls --almost-all --color --group-directories-first -X'
+alias ls='ls -A -G -F'
 
 for c in cp rm chmod chown rename; do
     alias $c="$c -v"
