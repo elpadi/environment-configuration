@@ -6,7 +6,7 @@ BUILD_DIR := $(shell python -c 'import os,sys;print os.path.realpath(sys.argv[1]
 
 HOSTNAME := $(shell hostname)
 
-.PHONY: all build_dirs variables apache vim vim-bundles zsh
+.PHONY: all build_dirs variables apache vim vim-bundles zsh ftp
 
 all:
 	@echo "You must specify a target."
@@ -19,6 +19,8 @@ build_dirs:
 	@mkdir -p build/shell
 
 variables: build_dirs build/variables.txt
+
+ftp: ~/.config/lftp/rc
 
 vim: build_dirs build/vim/.vimrc vim-bundles
 
@@ -49,3 +51,6 @@ build/apache/vhosts.conf: src/apache/vhosts/*.conf
 
 build/apache/hosts.txt: src/apache/vhosts/*.conf
 	cat $^ | grep 'ServerName' | awk '{ print "127.0.0.1\t" $$2; }' > $@
+
+~/.config/lftp/rc: src/ftp/lftp-rc.txt
+	cat $^ > $@
