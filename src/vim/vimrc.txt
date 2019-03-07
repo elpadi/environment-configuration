@@ -51,10 +51,10 @@ set nocompatible
 set laststatus=2
 
 " put swap files in vim swap directory.
-set directory^=$ENV_DIR/vim/swap//
+set directory^=$HOME/vim/swap//
 
 " set persistent history.
-set undodir=$ENV_DIR/vim/undodir
+set undodir=$HOME/vim/undodir
 set undofile
 
 " briefly moves cursor to matching character
