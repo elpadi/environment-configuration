@@ -25,7 +25,11 @@ col () {
 }
 
 ff () {
-	find . -iname "*$1*"
+	if [ -e $2 ]; then
+		find . -iname "*$1*"
+	else 
+		find . -iname "*$1*" | grep "$2"
+	fi
 }
 
 path() {
@@ -42,6 +46,10 @@ wpsed() {
 
 vga() {
 	if [ $(xrandr | grep -c 'VGA1 dis') -eq 1 ]; then xrandr --output VGA1 --off; else xrandr --output VGA1 --preferred --right-of LVDS1; fi
+}
+
+rundevdocs() {
+	cd $SITES_DIR/downloads/devdocs && bundle exec rackup
 }
 
 git-lftp() {

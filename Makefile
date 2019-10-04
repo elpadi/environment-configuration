@@ -24,7 +24,7 @@ ftp: ~/.config/lftp/rc
 
 vim: build_dirs build/vim/.vimrc vim-bundles
 
-zsh: build_dirs build/shell/.zshrc
+zsh: build_dirs build/variables.txt build/shell/.zshrc
 
 apache: build_dirs build/apache/server.conf build/apache/vhosts.conf build/apache/hosts.txt
 
@@ -40,16 +40,16 @@ build/vim/.vimrc: src/vim/vimrc.txt src/vim/config-dirs
 	cp -r src/vim/config-dirs/* build/vim
 	cp src/vim/vimrc.txt $@
 
-build/shell/.zshrc: build/variables.txt src/shell/*.txt src/shell/zshell/*.txt
+build/shell/.zshrc: $(sort $(wildcard src/shell/*.txt)) $(wildcard src/shell/zshell/*.txt)
 	cat $^ > $@
 
 build/apache/server.conf: src/apache/server.conf
 	sed -e "s,%SITES_DIR%,$$SITES_DIR,g" $^ > $@
 
-build/apache/vhosts.conf: src/apache/vhosts/*.conf
+build/apache/vhosts.conf: $(wildcard src/apache/vhosts/*.conf)
 	cat $^ | sed -e "s,DocumentRoot ,DocumentRoot $$SITES_DIR," -e "s/ServerName LOCAL_HOSTNAME/ServerName $(HOSTNAME)/" > $@
 
-build/apache/hosts.txt: src/apache/vhosts/*.conf
+build/apache/hosts.txt: $(wildcard src/apache/vhosts/*.conf)
 	cat $^ | grep 'ServerName' | awk '{ print "127.0.0.1\t" $$2; }' > $@
 
 ~/.config/lftp/rc: src/ftp/lftp-rc.txt

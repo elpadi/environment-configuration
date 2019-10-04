@@ -1,0 +1,13 @@
+ENV_DIR="/home/carlos"
+DATA_DIR="/media/carlos/Files"
+SITES_DIR="/media/carlos/Files/Work"
+
+PATH="$HOME/.yarn/bin:$HOME/.xmonad:$HOME/.cabal/bin:$HOME/Scripts/phpctags/bin:$HOME/Scripts:$SITES_DIR/elpadi/shell-scripts:$PATH"
+PHPRC="$SITES_DIR/elpadi/environment-configuration/src/php"
+
+SSL_CERTS_PATH="/etc/ssl/certs/ca-certificates.crt"
+NODE_PATH=/usr/local/bin:/usr/local/lib/node_modules
+
+EDITOR="vim"
+TERM="rxvt"
+CLICOLOR=true
