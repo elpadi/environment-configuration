@@ -6,7 +6,7 @@ BUILD_DIR := $(shell python -c 'import os,sys;print os.path.realpath(sys.argv[1]
 
 HOSTNAME := $(shell hostname)
 
-.PHONY: all build_dirs variables apache vim vim-bundles zsh ftp
+.PHONY: all build_dirs apache vim vim-bundles zsh ftp
 
 all:
 	@echo "You must specify a target."
@@ -18,22 +18,17 @@ build_dirs:
 	@mkdir -p build/apache
 	@mkdir -p build/shell
 
-variables: build_dirs build/variables.txt
-
 ftp: ~/.config/lftp/rc
 
 vim: build_dirs build/vim/.vimrc vim-bundles
 
-zsh: build_dirs build/variables.txt build/shell/.zshrc
+zsh: build_dirs build/shell/.zshrc
 
 apache: build_dirs build/apache/server.conf build/apache/vhosts.conf build/apache/hosts.txt
 
 vim-bundles: src/vim/bundles.txt
 	$(eval REPOS := $(shell cat $^))
 	cd build/vim/bundle; for r in $(REPOS); do dir=`echo $$r | perl -pe 's/.*\/([^\/]*).git$$/\1/'`; if [ -d $$dir ]; then cd $$dir; git pull; cd ..; else git clone $$r; fi done || [ $$? -eq 1 ]
-
-build/variables.txt: src/variables/$(HOSTNAME).txt
-	cp $^ $@
 
 build/vim/.vimrc: src/vim/vimrc.txt src/vim/config-dirs
 	mkdir -p build/vim/{bundle,undodir,swap}

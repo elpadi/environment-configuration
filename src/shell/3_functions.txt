@@ -27,8 +27,10 @@ col () {
 ff () {
 	if [ -e $2 ]; then
 		find . -iname "*$1*"
-	else 
-		find . -iname "*$1*" | grep "$2"
+	elif [ -e $3 ]; then 
+		find "$2" -iname "*$1*"
+	else
+		find "$2" -iname "*$1*" | grep "$3"
 	fi
 }
 
@@ -70,5 +72,5 @@ tsess() {
 }
 
 bckg() {
-	nohup $0 > /dev/null 2>&1 &
+	nohup "$@" > /dev/null 2>&1 &
 }

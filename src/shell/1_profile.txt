@@ -1,2 +1,12 @@
 source ~/.env
 source ~/.profile
+export DATA_DIR
+export ENV_DIR
+export SITES_DIR
+export PATH
+export PHPRC
+export SSL_CERTS_PATH
+export NODE_PATH
+export EDITOR
+export TERM
+export CLICOLOR
