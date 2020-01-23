@@ -25,9 +25,11 @@ col () {
 }
 
 ff () {
-	if [ -e $2 ]; then
+	if [[ "$#" == "0" ]]; then
+		find .
+	elif [[ "$#" == "1" ]]; then
 		find . -iname "*$1*"
-	elif [ -e $3 ]; then 
+	elif [[ "$#" == "2" ]]; then
 		find "$2" -iname "*$1*"
 	else
 		find "$2" -iname "*$1*" | grep "$3"
