@@ -1,0 +1,28 @@
+[user]
+	name = carlos (minimal)
+	email = padi_05@yahoo.com
+[push]
+	default = current
+[core]
+	excludesfile = /home/carlos/.config/git/.gitignore
+	autocrlf = false
+	pager = delta
+[diff]
+	tool = meld
+	algorithm = histogram
+[pull]
+	ff = only
+[merge]
+	conflictstyle = zdiff3
+	tool = meld
+[commit]
+	verbose = true
+[branch]
+	sort = -committerdate
+[tag]
+	sort = taggerdate
+[fetch]
+	prune = true
+	prunetags = true
+[log]
+	date = iso
